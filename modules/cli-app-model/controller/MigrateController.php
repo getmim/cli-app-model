@@ -41,7 +41,12 @@ class MigrateController extends \CliApp\Controller
 
     public function schemeAction() {
         $here = $this->canRunHere();
-        $cmd = 'php index.php migrate scheme ' . $this->req->param->file;
+        $cmd = 'php index.php';
+
+        $opt = getopt('', ['table::']);
+        if($opt)
+            $cmd.= ' --table=' . $opt['table'];
+        $cmd.=  ' migrate scheme ' . $this->req->param->dirname;
         echo `$cmd`;
     }
 }

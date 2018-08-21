@@ -53,9 +53,9 @@ return [
             'toolAppMigrateScheme' => [
                 'info' => 'Test application database migrate and create sync sql',
                 'path' => [
-                    'value' => 'migrate scheme (:file)',
+                    'value' => 'migrate scheme (:dirname)',
                     'params' => [
-                        'file' => 'any'
+                        'dirname' => 'any'
                     ]
                 ],
                 'handler' => 'CliAppModel\\Controller\\Migrate::scheme'
