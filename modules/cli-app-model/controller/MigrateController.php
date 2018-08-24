@@ -29,24 +29,36 @@ class MigrateController extends \CliApp\Controller
 
     public function testAction() {
         $here = $this->canRunHere();
-        $cmd = 'php index.php migrate test';
+        $cmd = 'php index.php';
+
+        $opt = getopt('', ['table::']);
+        if($opt)
+            $cmd.= ' --table=' . $opt['table'];
+        $cmd.=  ' migrate test';
+        
         echo `$cmd`;
     }
 
     public function startAction() {
-        $here = $this->canRunHere();
-        $cmd = 'php index.php migrate start';
-        echo `$cmd`;
-    }
-
-    public function schemeAction() {
         $here = $this->canRunHere();
         $cmd = 'php index.php';
 
         $opt = getopt('', ['table::']);
         if($opt)
             $cmd.= ' --table=' . $opt['table'];
-        $cmd.=  ' migrate scheme ' . $this->req->param->dirname;
+        $cmd.=  ' migrate start';
+
+        echo `$cmd`;
+    }
+
+    public function schemaAction() {
+        $here = $this->canRunHere();
+        $cmd = 'php index.php';
+
+        $opt = getopt('', ['table::']);
+        if($opt)
+            $cmd.= ' --table=' . $opt['table'];
+        $cmd.=  ' migrate schema ' . $this->req->param->dirname;
         echo `$cmd`;
     }
 }

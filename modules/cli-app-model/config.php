@@ -50,15 +50,15 @@ return [
                 ],
                 'handler' => 'CliAppModel\\Controller\\Migrate::start'
             ],
-            'toolAppMigrateScheme' => [
+            'toolAppMigrateSchema' => [
                 'info' => 'Test application database migrate and create sync sql',
                 'path' => [
-                    'value' => 'migrate scheme (:dirname)',
+                    'value' => 'migrate schema (:dirname)',
                     'params' => [
                         'dirname' => 'any'
                     ]
                 ],
-                'handler' => 'CliAppModel\\Controller\\Migrate::scheme'
+                'handler' => 'CliAppModel\\Controller\\Migrate::schema'
             ]
         ]
     ],
@@ -71,7 +71,7 @@ return [
                     'method' => 'command'
                 ]
             ],
-            '!^app migrate scheme( .*)?$!' => [
+            '!^app migrate schema( .*)?$!' => [
                 'priority' => 7,
                 'handler' => [
                     'class' => 'Cli\\Library\\Autocomplete',

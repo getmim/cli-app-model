@@ -13,7 +13,7 @@ class Autocomplete extends \Cli\Autocomplete
     static function command(array $args) {
         $farg = $args[2] ?? null;
 
-        $result = ['test', 'scheme', 'start'];
+        $result = ['test', 'schema', 'start'];
 
         if(!$farg)
             return trim(implode(' ', $result));
