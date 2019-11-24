@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'cli-app-model',
-    '__version' => '0.0.1',
+    '__version' => '0.1.0',
     '__git' => 'git@github.com:getmim/cli-app-model.git',
     '__license' => 'MIT',
     '__author' => [
@@ -36,19 +36,12 @@ return [
     ],
     'routes' => [
         'tool-app' => [
-            'toolAppMigrateTest' => [
-                'info' => 'Test application database migrate',
+            'toolAppMigrateDb' => [
+                'info' => 'Try to create non exists database',
                 'path' => [
-                    'value' => 'migrate test'
+                    'value' => 'migrate db'
                 ],
-                'handler' => 'CliAppModel\\Controller\\Migrate::test'
-            ],
-            'toolAppMigrateStart' => [
-                'info' => 'Start application database migrate',
-                'path' => [
-                    'value' => 'migrate start'
-                ],
-                'handler' => 'CliAppModel\\Controller\\Migrate::start'
+                'handler' => 'CliAppModel\\Controller\\Migrate::db'
             ],
             'toolAppMigrateSchema' => [
                 'info' => 'Test application database migrate and create sync sql',
@@ -59,6 +52,20 @@ return [
                     ]
                 ],
                 'handler' => 'CliAppModel\\Controller\\Migrate::schema'
+            ],
+            'toolAppMigrateStart' => [
+                'info' => 'Start application database migrate',
+                'path' => [
+                    'value' => 'migrate start'
+                ],
+                'handler' => 'CliAppModel\\Controller\\Migrate::start'
+            ],
+            'toolAppMigrateTest' => [
+                'info' => 'Test application database migrate',
+                'path' => [
+                    'value' => 'migrate test'
+                ],
+                'handler' => 'CliAppModel\\Controller\\Migrate::test'
             ]
         ]
     ],

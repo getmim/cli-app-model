@@ -16,7 +16,8 @@ mim app install cli-app-model
 Jalankan perintah-perintah berikut pada folder aplikasi:
 
 ```
-mim [--table=..,..] app migrate test
+mim [--table=..,..] app migrate db
 mim [--table=..,..] app migrate start
 mim [--table=..,..] app migrate schema (:dirname)
+mim [--table=..,..] app migrate test
 ```

@@ -27,15 +27,25 @@ class MigrateController extends \CliApp\Controller
         return $here;
     }
 
-    public function testAction() {
+    public function dbAction(){
         $here = $this->canRunHere();
         $cmd = 'php index.php';
 
         $opt = getopt('', ['table::']);
         if($opt)
             $cmd.= ' --table=' . $opt['table'];
-        $cmd.=  ' migrate test';
-        
+        $cmd.= ' migrate db';
+        echo `$cmd`;
+    }
+
+    public function schemaAction() {
+        $here = $this->canRunHere();
+        $cmd = 'php index.php';
+
+        $opt = getopt('', ['table::']);
+        if($opt)
+            $cmd.= ' --table=' . $opt['table'];
+        $cmd.=  ' migrate schema ' . $this->req->param->dirname;
         echo `$cmd`;
     }
 
@@ -51,14 +61,15 @@ class MigrateController extends \CliApp\Controller
         echo `$cmd`;
     }
 
-    public function schemaAction() {
+    public function testAction() {
         $here = $this->canRunHere();
         $cmd = 'php index.php';
 
         $opt = getopt('', ['table::']);
         if($opt)
             $cmd.= ' --table=' . $opt['table'];
-        $cmd.=  ' migrate schema ' . $this->req->param->dirname;
+        $cmd.=  ' migrate test';
+        
         echo `$cmd`;
     }
 }
